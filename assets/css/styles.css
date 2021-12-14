@@ -6,10 +6,99 @@
 
 
 .container {
-    background-color: #eef0f1;    
+    background-color: #eef0f1;
 }
 
 
 .carousel {
     width: 80%;
+    height: 50vh;
+    min-height: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.carousel .images {
+    width: 80%;
+    height: 100%;
+    background-color: red;
+    float: left;
+}
+
+.carousel .images-thumbnails {
+    width: 20%;
+    height: 100%;
+    float: left;
+    background-color: green;
+    position: relative;
+}
+
+
+.images .image-item {
+    height: 100%;
+    position: relative;
+    color: white;
+}
+
+.image-item figcaption {
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+    margin: 20px;
+}
+
+.image-item figcaption h2 {
+
+    text-align: right;
+}
+
+.images .image-item img, .images-thumbnails .thumbnail-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.images-thumbnails .thumbnail-item{
+    height: calc(100% / 5);
+}
+
+
+.thumbnail-item.active {
+    box-shadow: inset 0 0 0 5px #ccc;
+}
+
+
+.slider {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-color: #ccc;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+.slider i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    color: #555;
+}
+
+.prev {
+    top: 10px;
+}
+
+
+.next {
+    bottom: 10px;
 }
