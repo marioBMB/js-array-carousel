@@ -21,7 +21,7 @@
 }
 
 .carousel .images {
-    width: 80%;
+    width: 83%;
     height: 100%;
     background-color: red;
     float: left;
@@ -29,7 +29,7 @@
 }
 
 .carousel .images-thumbnails {
-    width: 20%;
+    width: 17%;
     height: 100%;
     float: left;
     background-color: green;
@@ -41,12 +41,17 @@
     height: 100%;
     position: relative;
     color: white;
+    display: none;
+}
+
+.image-item.active {
+    display: block;
 }
 
 .image-item figcaption {
     position: absolute;
     bottom: 0px;
-    left:0px;
+    right: 0px;
     margin: 20px;
 }
 
