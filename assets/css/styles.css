@@ -63,11 +63,26 @@
 
 .images-thumbnails .thumbnail-item{
     height: calc(100% / 5);
+    position: relative;
 }
 
+.images-thumbnails .thumbnail-item.active {
+    position: static;
+}
+
+.thumbnail-item::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(30,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+}
 
 .thumbnail-item.active {
-    box-shadow: inset 0 0 0 5px #ccc;
+    box-sizing: 4px solid #ccc;
 }
 
 
