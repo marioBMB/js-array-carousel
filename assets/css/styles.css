@@ -34,8 +34,19 @@
     float: left;
     background-color: green;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
+    
 }
+
+.images-thumbnails::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .images-thumbnails {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 
 
 .images .image-item {
@@ -120,6 +131,10 @@
 
 .slider:hover {
     background-color: #ccc;
+}
+
+.slider:hover i {
+    color: black;
 }
 
 .slider i {
