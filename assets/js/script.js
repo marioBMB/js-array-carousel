@@ -34,6 +34,7 @@ const imgItemClone = [...imgItems];
 
 let thumbnailsBox = document.getElementsByClassName("images-thumbnails")[0];
 let thumbnailItems = thumbnailsBox.getElementsByClassName("thumbnail-item");
+let thumbnailsContent = thumbnailsBox.getElementsByClassName("thumbnails-content")[0];
 const thumbItemClone = [...thumbnailItems];
 
 imgItems[0].remove();
@@ -56,7 +57,7 @@ for (let i = 0; i < items.length; i++){
     itemsBox.innerHTML += newItemClone.outerHTML;
 
     newThumbClone.querySelector("img").src = items[i];
-    thumbnailsBox.innerHTML += newThumbClone.outerHTML;
+    thumbnailsContent.innerHTML += newThumbClone.outerHTML;
 }
 
 imgItems[activeItemIndex].classList.add('active');
@@ -91,7 +92,7 @@ btnNext.addEventListener("click", function(){
     if (activeItemIndex > 4){
         console.log("active > 5");
 
-        thumbnailsBox.scrollBy({
+        thumbnailsContent.scrollBy({
             top: 90,
             left: 0,
             behavior: 'smooth'
