@@ -88,7 +88,7 @@ btnNext.addEventListener("click", function(){
 
     activeItemIndex++;
 
-    if (activeItemIndex > 5){
+    if (activeItemIndex > 4){
         console.log("active > 5");
 
         thumbnailsBox.scrollBy({

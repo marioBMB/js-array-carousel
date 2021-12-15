@@ -35,7 +35,7 @@
     right: 0;
     position: relative;
     background-color: green;
-    overflow: hidden;
+
     
 }
 
@@ -84,6 +84,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    overflow: scroll;
 }
 
 .images-thumbnails .thumbnail-item {
