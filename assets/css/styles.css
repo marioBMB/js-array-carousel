@@ -35,14 +35,8 @@
     right: 0;
     position: relative;
     background-color: green;
-
-    
+    overflow: hidden;
 }
-
-.images-thumbnails::-webkit-scrollbar {
-    display: none;
-}
-  
 
 .images .image-item {
     height: 100%;
@@ -84,8 +78,18 @@
     position: absolute;
     top: 0;
     left: 0;
-    overflow: scroll;
+    overflow: auto;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
+
+ /* Hide scrollbar for Chrome, Safari and Opera */
+ .thumbnails-content::-webkit-scrollbar {
+    display: none;
+  }
+  
+ 
 
 .images-thumbnails .thumbnail-item {
     height: calc(100% / 5);
@@ -150,7 +154,6 @@
 .prev {
     top: 10px;
 }
-
 
 .next {
     bottom: 10px;
