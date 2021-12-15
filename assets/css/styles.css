@@ -53,6 +53,7 @@
     bottom: 0px;
     right: 0px;
     margin: 40px;
+    text-shadow: 1px 1px black;
 }
 
 .image-item figcaption h2 {
