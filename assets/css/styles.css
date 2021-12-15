@@ -18,6 +18,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0 1px 3px #555;
 }
 
 .carousel .images {
@@ -25,7 +26,6 @@
     height: 100%;
     background-color: red;
     float: left;
-    box-shadow: 0 1px 3px #555;
 }
 
 .carousel .images-thumbnails {
@@ -52,11 +52,13 @@
     position: absolute;
     bottom: 0px;
     right: 0px;
-    margin: 20px;
+    margin: 40px;
 }
 
 .image-item figcaption h2 {
     text-align: right;
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
 }
 
 .image-item figcaption h4 {
@@ -84,7 +86,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(30,0,0,0.4);
+    background-color: rgba(30,0,0,0.45);
     width: 100%;
     height: 100%;
     padding: 0;
@@ -107,13 +109,16 @@
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
-    background-color: #ccc;
-    width: 30px;
-    height: 30px;
+    background-color: rgba(204, 204, 204, 0.5);   
+    width: 28px;
+    height: 28px;
     cursor: pointer;
     z-index: 10;
 }
 
+.slider:hover {
+    background-color: #ccc;
+}
 
 .slider i {
     position: absolute;
@@ -122,8 +127,9 @@
     transform: translate(-50%, -50%);
     margin: 0;
     padding: 0;
-    font-size: 30px;
+    font-size: 28px;
     color: #555;
+    font-weight: 600;
 }
 
 .prev {

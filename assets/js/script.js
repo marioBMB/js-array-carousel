@@ -36,10 +36,10 @@ const thumbItemClone = [...thumbnailItems];
 imgItems[0].remove();
 thumbnailItems[0].remove();
 
-console.log(itemsBox);
-console.log(imgItemClone);
-console.log(thumbnailsBox);
-console.log(thumbItemClone);
+// console.log(itemsBox);
+// console.log(imgItemClone);
+// console.log(thumbnailsBox);
+// console.log(thumbItemClone);
 
 for (let i = 0; i < items.length; i++){
     
@@ -58,19 +58,35 @@ for (let i = 0; i < items.length; i++){
 imgItems[activeItemIndex].classList.add('active');
 thumbnailItems[activeItemIndex].classList.add('active');
 
-const btnPrev = document.querySelector("slider prev")[0];
-const btnNext = document.querySelector("slider next")[0];
 
+const btnPrev = thumbnailsBox.querySelector(".slider.prev");
+const btnNext = thumbnailsBox.querySelector(".slider.next");
+
+console.log(btnPrev);
+console.log(btnNext);
 
 btnPrev.addEventListener("click", function(){
 
-    activeItemIndex--;
+    imgItems[activeItemIndex].classList.remove('active');
+    thumbnailItems[activeItemIndex].classList.remove('active');
 
+    activeItemIndex = --activeItemIndex % items.length;
+    activeItemIndex = (( activeItemIndex + items.length) % items.length);
+
+    console.log(activeItemIndex);
+
+    imgItems[activeItemIndex].classList.add('active');
+    thumbnailItems[activeItemIndex].classList.add('active');
 });
-
 
 btnNext.addEventListener("click", function(){
     
-    activeItemIndex++;
+    imgItems[activeItemIndex].classList.remove('active');
+    thumbnailItems[activeItemIndex].classList.remove('active');
+
+    activeItemIndex = (++activeItemIndex % items.length);
+    activeItemIndex = (( activeItemIndex + items.length) % items.length);
+    imgItems[activeItemIndex].classList.add('active');
+    thumbnailItems[activeItemIndex].classList.add('active');
 
 });
