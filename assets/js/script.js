@@ -3,7 +3,8 @@ const items = [
     'assets/img/02.jpg',
     'assets/img/03.jpg',
     'assets/img/04.jpg',
-    'assets/img/05.jpg'
+    'assets/img/05.jpg',
+    'assets/img/06.jpg'
 ];
 
 const title = [
@@ -11,7 +12,8 @@ const title = [
     'Svizzera',
     'Gran Bretagna',
     'Germania',
-    'Paradise'
+    'Paradise',
+    'Venezia',
 ];
 
 const text = [
@@ -20,6 +22,7 @@ const text = [
     'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
     'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
+    'La capitale di una delle più importanti repubbliche marinare. Fondata secondo la tradizione nel 697 da Paoluccio Anafesto, nel corso dei suoi millecento anni di storia si affermò come una delle maggiori potenze commerciali e navali europee. ',
 ];
 
 
@@ -31,6 +34,7 @@ const imgItemClone = [...imgItems];
 
 let thumbnailsBox = document.getElementsByClassName("images-thumbnails")[0];
 let thumbnailItems = thumbnailsBox.getElementsByClassName("thumbnail-item");
+let thumbnailContent = thumbnailsBox.getElementsByClassName("thumbnails-content")[0];
 const thumbItemClone = [...thumbnailItems];
 
 imgItems[0].remove();
@@ -74,8 +78,6 @@ btnPrev.addEventListener("click", function(){
     activeItemIndex--;
     activeItemIndex = (( activeItemIndex + items.length) % items.length);
 
-    console.log(activeItemIndex);
-
     imgItems[activeItemIndex].classList.add('active');
     thumbnailItems[activeItemIndex].classList.add('active');
 });
@@ -87,12 +89,23 @@ btnNext.addEventListener("click", function(){
 
     activeItemIndex++;
     activeItemIndex = (( activeItemIndex + items.length) % items.length);
+
     imgItems[activeItemIndex].classList.add('active');
     thumbnailItems[activeItemIndex].classList.add('active');
+
+    if (activeItemIndex > 5){
+        thumbnailContent.scroll({
+            top: 90,
+            left: 0,
+            behavior: 'smooth'
+          });
+    }
 });
 
 
+/*
 thumbnailItems.addEventListener('click', function(){
 
     
 });
+*/
