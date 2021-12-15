@@ -31,23 +31,18 @@
 .carousel .images-thumbnails {
     width: 17%;
     height: 100%;
-    float: left;
-    background-color: green;
+    top: 0;
+    right: 0;
     position: relative;
-    overflow: auto;
+    background-color: green;
+    overflow: hidden;
     
 }
 
 .images-thumbnails::-webkit-scrollbar {
     display: none;
-  }
+}
   
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .images-thumbnails {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-
 
 .images .image-item {
     height: 100%;
@@ -84,14 +79,16 @@
     object-fit: cover;
 }
 
+.images-thumbnails .thumbnails-content {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 .images-thumbnails .thumbnail-item {
     height: calc(100% / 5);
     position: relative;
-}
-
-.images-thumbnails .thumbnail-item.active {
-    position: static;
 }
 
 .thumbnail-item::before {
@@ -133,10 +130,6 @@
     background-color: #ccc;
 }
 
-.slider:hover i {
-    color: black;
-}
-
 .slider i {
     position: absolute;
     top: 50%;
@@ -147,6 +140,10 @@
     font-size: 28px;
     color: #555;
     font-weight: 600;
+}
+
+.slider:hover i {
+    color: black;
 }
 
 .prev {

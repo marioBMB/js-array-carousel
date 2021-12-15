@@ -34,7 +34,6 @@ const imgItemClone = [...imgItems];
 
 let thumbnailsBox = document.getElementsByClassName("images-thumbnails")[0];
 let thumbnailItems = thumbnailsBox.getElementsByClassName("thumbnail-item");
-let thumbnailContent = thumbnailsBox.getElementsByClassName("thumbnails-content")[0];
 const thumbItemClone = [...thumbnailItems];
 
 imgItems[0].remove();
@@ -88,18 +87,22 @@ btnNext.addEventListener("click", function(){
     thumbnailItems[activeItemIndex].classList.remove('active');
 
     activeItemIndex++;
-    activeItemIndex = (( activeItemIndex + items.length) % items.length);
-
-    imgItems[activeItemIndex].classList.add('active');
-    thumbnailItems[activeItemIndex].classList.add('active');
 
     if (activeItemIndex > 5){
-        thumbnailContent.scroll({
+        console.log("active > 5");
+
+        thumbnailsBox.scrollBy({
             top: 90,
             left: 0,
             behavior: 'smooth'
           });
     }
+    activeItemIndex = (( activeItemIndex + items.length) % items.length);
+
+    imgItems[activeItemIndex].classList.add('active');
+    thumbnailItems[activeItemIndex].classList.add('active');
+
+
 });
 
 
