@@ -88,5 +88,10 @@ btnNext.addEventListener("click", function(){
     activeItemIndex = (( activeItemIndex + items.length) % items.length);
     imgItems[activeItemIndex].classList.add('active');
     thumbnailItems[activeItemIndex].classList.add('active');
+});
 
+
+thumbnailItems.addEventListener('click', function(){
+
+    find
 });
