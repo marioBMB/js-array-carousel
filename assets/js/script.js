@@ -49,6 +49,7 @@ for (let i = 0; i < items.length; i++){
     newItemClone.querySelector("img").src = items[i];
     newItemClone.querySelector("h2").innerHTML = title[i];
     newItemClone.querySelector("h4").innerHTML = text[i];
+    newItemClone.data_index = i;
     itemsBox.innerHTML += newItemClone.outerHTML;
 
     newThumbClone.querySelector("img").src = items[i];
@@ -70,7 +71,7 @@ btnPrev.addEventListener("click", function(){
     imgItems[activeItemIndex].classList.remove('active');
     thumbnailItems[activeItemIndex].classList.remove('active');
 
-    activeItemIndex = --activeItemIndex % items.length;
+    activeItemIndex--;
     activeItemIndex = (( activeItemIndex + items.length) % items.length);
 
     console.log(activeItemIndex);
@@ -84,7 +85,7 @@ btnNext.addEventListener("click", function(){
     imgItems[activeItemIndex].classList.remove('active');
     thumbnailItems[activeItemIndex].classList.remove('active');
 
-    activeItemIndex = (++activeItemIndex % items.length);
+    activeItemIndex++;
     activeItemIndex = (( activeItemIndex + items.length) % items.length);
     imgItems[activeItemIndex].classList.add('active');
     thumbnailItems[activeItemIndex].classList.add('active');
@@ -93,5 +94,5 @@ btnNext.addEventListener("click", function(){
 
 thumbnailItems.addEventListener('click', function(){
 
-    find
+    
 });
