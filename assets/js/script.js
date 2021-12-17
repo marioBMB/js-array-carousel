@@ -27,14 +27,19 @@ const text = [
 
 
 let activeItemIndex = 0;
+let thumbsPerPage = 5;
+let pages = Math.ceil(items.length / thumbsPerPage);
+let currPage = Math.ceil((activeItemIndex + 1) / thumbsPerPage);
+let lastThumb = function(){ return ((activeItemIndex + 1) % thumbsPerPage) == 0};
+
 
 let itemsBox = document.getElementsByClassName("images")[0];
 let imgItems = itemsBox.getElementsByClassName("image-item");
 const imgItemClone = [...imgItems];
 
 let thumbnailsBox = document.getElementsByClassName("images-thumbnails")[0];
-let thumbnailItems = thumbnailsBox.getElementsByClassName("thumbnail-item");
 let thumbnailsContent = thumbnailsBox.getElementsByClassName("thumbnails-content")[0];
+let thumbnailItems = thumbnailsBox.getElementsByClassName("thumbnail-item");
 const thumbItemClone = [...thumbnailItems];
 
 imgItems[0].remove();
@@ -67,8 +72,6 @@ thumbnailItems[activeItemIndex].classList.add('active');
 const btnPrev = thumbnailsBox.querySelector(".slider.prev");
 const btnNext = thumbnailsBox.querySelector(".slider.next");
 
-console.log(btnPrev);
-console.log(btnNext);
 
 btnPrev.addEventListener("click", function(){
 
@@ -87,27 +90,50 @@ btnNext.addEventListener("click", function(){
     imgItems[activeItemIndex].classList.remove('active');
     thumbnailItems[activeItemIndex].classList.remove('active');
 
-    activeItemIndex++;
-
-    if (activeItemIndex > 4){
-        console.log("active > 5");
+    let lastPage = (currPage == pages);
+    
+    
+    console.log("currPage", currPage);
+    console.log ("lastPage", lastPage);
+    console.log ("activeItemIndex", activeItemIndex);
+    console.log("mod", activeItemIndex % thumbsPerPage);
+    
+    if (!lastPage && lastThumb()){
 
         thumbnailsContent.scrollBy({
-            top: 90,
+            top: 500, /* va bene anche se c'è un solo elemento */
             left: 0,
             behavior: 'smooth'
-          });
+        });
     }
+    else if (lastPage && lastThumb()){
+        
+        thumbnailsContent.scrollBy({
+            top: -500, /* va bene anche se c'è un solo elemento */
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
+    activeItemIndex++;
+    
     activeItemIndex = (( activeItemIndex + items.length) % items.length);
-
     imgItems[activeItemIndex].classList.add('active');
     thumbnailItems[activeItemIndex].classList.add('active');
 
 
 });
 
+/* 
+    quando arrivo all'ultima thumbnail per pagina e clicco giù
 
+    se esiste un'altra pagina dopo
+             mi scrolla dell'altezza di una immagine
+
+    altrimenti 
+            torna alla prima immagine (ciclo)
 /*
+
+
 thumbnailItems.addEventListener('click', function(){
 
     
